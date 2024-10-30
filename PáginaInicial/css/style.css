@@ -41,11 +41,20 @@
     align-items: center;
     gap: 100px;
     padding-inline: 20px;
+    flex-wrap: wrap;
     
 }
 
 .links a{
     font-size: 25px;
+}
+
+.links a:hover{
+    cursor: pointer;
+}
+
+.tremor {
+    animation: tremer 0.2s ease-in-out infinite;
 }
 
 @keyframes tremer {
@@ -59,9 +68,8 @@
 .telaPrincipal{
     display: flex;
     background-color: #0a1016b9;
-    animation: tremer 0.2s ease-in-out infinite;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     width: 95%;
     min-height: 80vh;
     border-radius: 50px;
@@ -127,7 +135,29 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0);
     z-index: -1;
     border-radius: 50px;
 }
+
+.mensagem{
+    font-size: 35px;
+}
+
+@keyframes rodar {
+    0% { 
+        transform: rotate(0deg); 
+    }
+    100% { 
+        transform: rotate(360deg); 
+    }
+}
+
+.imagem {
+    max-width: 200px;
+}
+
+.imagem.rodar {
+    animation: rodar 1s ease-in-out forwards;
+}
+
