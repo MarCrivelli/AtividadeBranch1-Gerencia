@@ -11,21 +11,12 @@
 
 .fundoSite{
     display: flex;
-    background: linear-gradient(135deg, #43535c, #061525, #071d36);
+    background-color: black;
     width: 100%;
     min-height: 100vh;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-}
-
-.header{
-    background-color: rgba(3, 17, 20, 0);
-    width: 100%;
-    height: 100px;
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
 }
 
 .logo{
@@ -39,18 +30,46 @@
     flex-direction: row;
     width: 100%;
     align-items: center;
-    gap: 100px;
+    gap: 70px;
     padding-inline: 20px;
     flex-wrap: wrap;
-    
 }
 
-.links a{
+.botoes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.botUm{
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+.botDois{
+    background: linear-gradient(135deg, #ffc115, #ff9100);
+}
+
+.botTres{
+    background: linear-gradient(135deg, #7bff00, #0f8000);
+}
+
+.botQuatro{
+    background: linear-gradient(135deg, #8400ff, #35008b);
+}
+
+.links div a{
     font-size: 25px;
 }
 
-.links a:hover{
+.links div a:hover{
     cursor: pointer;
+}
+
+.espacoSobrando{
+    padding-inline: 108px;
 }
 
 .tremor {
@@ -68,14 +87,14 @@
 .telaPrincipal{
     display: flex;
     background-color: #0a1016b9;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    width: 95%;
-    min-height: 80vh;
-    border-radius: 50px;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
     border: 1px solid rgb(255, 255, 255);
     background-image: 
-        radial-gradient(200px 200px at 1vw 7vh, rgba(255, 255, 255, 0.226), transparent),
+        radial-gradient(200px 200px at 1vw 3vh, rgba(223, 223, 223, 0.603), transparent),
         radial-gradient(2px 2px at 20vw 30vh, rgba(255, 255, 255), transparent),
         radial-gradient(2px 2px at 30vw 60vh, rgba(255, 255, 255), transparent),
         radial-gradient(2px 2px at 50vw 50vh, rgba(255, 255, 255), transparent),
@@ -122,7 +141,7 @@
         radial-gradient(2px 2px at 25vw 45vh, rgba(255, 255, 255), transparent),
         radial-gradient(2px 2px at 65vw 25vh, rgba(255, 255, 255), transparent),
         radial-gradient(2px 2px at 35vw 15vh, rgba(255, 255, 255), transparent),
-        radial-gradient(400px 400px at 90vw 70vh, rgba(10, 4, 44, 0.89), transparent);
+        radial-gradient(400px 400px at 97vw 97vh, rgb(0, 29, 56), transparent);
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
     background-blend-mode: overlay;
@@ -137,9 +156,77 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0);
     z-index: -1;
-    border-radius: 50px;
 }
 
+.header{
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.telaResultado{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+    margin: auto;
+}
+
+.foguete {
+    display: none;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform-origin: center bottom;
+  }
+  
+  .foguete.animate {
+    display: block;
+    animation: spiral 2s infinite alternate;
+  }
+  
+  @keyframes spiral {
+    0% {
+        transform: translateX(0vw) translateY(0px);
+    }
+    10% {
+        transform: translateX(10vw) translateY(-1000px);
+    }
+    20% {
+        transform: translateX(15vw) translateY(0px);
+    }
+    30% {
+        transform: translateX(20vw) translateY(1000px);
+    }
+    40% {
+        transform: translateX(10vw) translateY(0px);
+    }
+    50% {
+        transform: translateX(20vw) translateY(-200px);
+    }
+    60% {
+        transform: translateX(30vw) translateY(200px);
+    }
+    70% {
+        transform: translateX(40vw) translateY(-400px);
+    }
+    80% {
+        transform: translateX(50vw) translateY(400px);
+    }
+    90% {
+        transform: translateX(60vw) translateY(-600px);
+    }
+    100% {
+        transform: translateX(100vw) translateY(600px);
+    }
+  }
+  
 .mensagem{
     font-size: 35px;
 }
@@ -154,10 +241,17 @@
 }
 
 .imagem {
-    max-width: 200px;
+    width: 400px;
+    height: 300px;
+    object-fit: scale-down;
 }
 
 .imagem.rodar {
     animation: rodar 1s ease-in-out forwards;
 }
 
+.foguete,
+.mensagem,
+.imagem {
+    display: none;
+}

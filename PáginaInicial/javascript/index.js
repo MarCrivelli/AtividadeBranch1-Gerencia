@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const imagemLink = document.querySelector('#imagemLink');
     const mensagemDiv = document.querySelector('#mensagem');
     const imagemElement = document.querySelector('#imagem');
+    const foguete = document.querySelector('.foguete');
+    const ativarFoguete = document.getElementById('ativarFoguete');
 
     const mensagens = [
         "A mensagem do universo é: Se tudo está indo mal, desista antes de ficar pior",
@@ -13,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Você é uma inspiração para todos, pois você começou no barro e ainda continua lá.",
         "As pessoas costumam ficar mais inteligentes com o tempo. Uma pena que não te avisaram isso",
         "Um homem não vai te bater duas vezes, se você bater nele na primeira.",
-        "Você quer me fazer perguntas... Com essa roupa? 🤨",
+        "Você quer me fazer perguntas... com essa roupa? 🤨",
         "As pessoas ficam tomadas por uma emoção quando você não está perto. Ela se chama... felicidade.",
         "Você tem uma excelente determinação, meu jovem. Uma pena que você só se resuma a isso."
     ];
@@ -28,46 +30,43 @@ document.addEventListener('DOMContentLoaded', () => {
     let indiceMensagem = 0; 
     let indiceImagem = 0;
 
-    // Adiciona a animação de tremor
-    tremorLink.addEventListener('click', () => {
-        telaPrincipal.classList.toggle('tremor');
+    function esconderTodos() {
+        foguete.classList.remove('animate'); 
+        foguete.style.display = 'none';
+        mensagemDiv.style.display = 'none';
+        imagemElement.style.display = 'none';
+    }
+
+    ativarFoguete.addEventListener('click', () => {
+        esconderTodos();
+        foguete.style.display = 'block';
+        foguete.classList.add('animate'); 
     });
 
-    // Adiciona a mensagem do universo
     mensagemLink.addEventListener('click', () => {
+        esconderTodos(); 
         mensagemDiv.textContent = mensagens[indiceMensagem]; 
+        mensagemDiv.style.display = 'block';
         indiceMensagem = (indiceMensagem + 1) % mensagens.length; 
     });
 
-    // Mostra uma imagem em sequência com animação
     imagemLink.addEventListener('click', () => {
-        imagemElement.src = imagens[indiceImagem]; // Seleciona a próxima imagem
-        indiceImagem = (indiceImagem + 1) % imagens.length; // Avança para a próxima imagem
+        esconderTodos();
+        imagemElement.src = imagens[indiceImagem]; 
+        imagemElement.style.display = 'block'; 
+        indiceImagem = (indiceImagem + 1) % imagens.length;
 
-        imagemElement.style.display = 'block'; // Torna a imagem visível
-
-        // Adiciona a classe de animação e remove após a animação ser concluída
         imagemElement.classList.add('rodar');
         imagemElement.addEventListener('animationend', () => {
             imagemElement.classList.remove('rodar');
         }, { once: true });
     });
-});
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    const imagemElement = document.querySelector('.imagem');
-    const botaoAnimacao = document.querySelector('#animar');
-
-    botaoAnimacao.addEventListener('click', () => {
-        imagemElement.classList.add('rodar');
-    });
-
-    // Define a posição final quando a animação termina
-    imagemElement.addEventListener('animationend', () => {
-        imagemElement.style.marginLeft = '0'; // Define o margin-left como 0 após a animação
-        imagemElement.classList.remove('rodar'); // Remove a classe para reiniciar a animação se clicado novamente
+    tremorLink.addEventListener('click', () => {
+        telaPrincipal.classList.toggle('tremor');
     });
 });
+
+
 
 

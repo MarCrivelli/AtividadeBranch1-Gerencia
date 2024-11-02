@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Branch 1</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,18 +11,32 @@
 </head>
 <body>
     <div class="fundoSite">
-        <div class="header">
-            <img class="logo" src="/PáginaInicial/image/moon.png">
-            <div class="links">
-                <a id="tremor">Foguete</a>
-                <a id="mensagemLink">Mensagem do universo</a>
-                <a id="tremorLink">Tremor</a>
-                <a id="imagemLink">?????</a>
-            </div>
-        </div>
+        
         <div class="telaPrincipal">
-            <div id="mensagem" class="mensagem"></div>
-            <img id="imagem" class="imagem" style="display: none;" />
+            <div class="header">
+                <a href="index.html">
+                    <img class="logo" src="/PáginaInicial/image/moon.png">
+                </a>
+                <div class="links">
+                    <div class="botoes botUm">
+                        <a class="espacoSobrando" id="ativarFoguete">Foguete</a>
+                    </div>
+                    <div class="botoes botDois">
+                        <a id="mensagemLink">Mensagem do universo</a>
+                    </div>
+                    <div class="botoes botTres">
+                        <a class="espacoSobrando" id="tremorLink">Tremor</a>
+                    </div>
+                    <div class="botoes botQuatro">
+                        <a class="espacoSobrando" id="imagemLink">?????</a>
+                    </div>
+                </div>
+            </div>
+            <div class="telaResultado">
+                <img class="foguete" src="/PáginaInicial/image/foguete.png">
+                <div id="mensagem" class="mensagem"></div>
+                <img id="imagem" class="imagem" style="display: none;" />
+            </div>
         </div>
     </div>
     <script defer src="../javascript/index.js"></script>
